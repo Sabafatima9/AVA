@@ -1,0 +1,37 @@
+{
+  "name": "support-backend",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12 <23"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
+    "test:live": "vitest run --project live",
+    "doctor": "tsx scripts/doctor.ts",
+    "db:grants": "tsx scripts/db-grants.ts",
+    "db:set-role-password": "tsx scripts/db-set-role-password.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@cloudflare/workers-types": "5.20261003.1",
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.2",
+    "vitest": "5.0.3",
+    "wrangler": "4.147.0"
+  },
+  "dependencies": {
+    "hono": "4.13.12",
+    "pino": "10.4.0",
+    "zod": "4.6.5"
+  }
+}
